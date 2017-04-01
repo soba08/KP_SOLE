@@ -113,6 +113,16 @@
      <string comment="*"/>
     </property>
    </widget>
+   <widget class="QLineEdit" name="returnMsg">
+    <property name="geometry">
+     <rect>
+      <x>380</x>
+      <y>330</y>
+      <width>191</width>
+      <height>101</height>
+     </rect>
+    </property>
+   </widget>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>

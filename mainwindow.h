@@ -19,8 +19,8 @@ private slots:
 
 
     void on_pushButton_clicked();
-    void connect_to_db(QString name,QString pass);
     QString login(QString name,QString pass);
+
 
 private:
     Ui::MainWindow *ui;
