@@ -1,15 +1,13 @@
-#include "mainwindow.h"
+#include "dialog.h"
 #include <QApplication>
-#include <QLineEdit>
+#include <QResource>
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-//    QLineEdit l;
-//    l.setEchoMode(QLineEdit::Password);
-//    l.show();
-    MainWindow w;
-
+    Dialog w;
+    w.setFixedHeight(1500);
+    w.setFixedWidth(1500);
     w.show();
 
     return a.exec();

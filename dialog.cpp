@@ -1,26 +1,39 @@
-#include "mainwindow.h"
-#include "ui_mainwindow.h"
+#include "dialog.h"
+#include "ui_dialog.h"
 #include <QDebug>
+#include "registration.h"
 #include <QtSql/QSqlDatabase>
 #include <QtSql/QSqlQuery>
-#include <QtSql>
+#include<QtSql/QSqlError>
+#include "subject.h"
 
-MainWindow::MainWindow(QWidget *parent) :
-    QMainWindow(parent),
-    ui(new Ui::MainWindow)
+Dialog::Dialog(QWidget *parent) :
+    QDialog(parent),
+    ui(new Ui::Dialog)
 {
     ui->setupUi(this);
+    ui->errMsg->hide();
 }
 
-MainWindow::~MainWindow()
+Dialog::~Dialog()
 {
     delete ui;
 }
 
-
-
-void MainWindow::on_pushButton_clicked()
+void Dialog::on_pushButton_clicked()
 {
+    this->close();
+    Registration reg;
+    reg.setModal(true);
+    reg.setFixedHeight(1500);
+    reg.setFixedWidth(1500);
+    reg.exec();
+
+}
+
+void Dialog::on_pushButton_2_clicked()
+{
+    qDebug()<<"Login was clicked:::";
     qDebug()<< "The submit button has been clicked";
     QString userName = ui->userName->text();
     qDebug()<<"The userName is :::"<<userName;
@@ -28,21 +41,15 @@ void MainWindow::on_pushButton_clicked()
     QString password=ui->password->text();
     qDebug()<< "The password is :::"<<password;
 
-    ui->returnMsg->setText(login(userName,password));
-
-
+    //ui->returnMsg->setText(login(userName,password));
+    login(userName,password);
 }
-
-QString MainWindow::login(QString name,QString pass)
+QString Dialog::login(QString name,QString pass)
 {
     // This is where i give my DB configurations ...
 
-    QSqlDatabase db = QSqlDatabase::addDatabase("QPSQL");
-    db.setHostName("localhost");
-    db.setDatabaseName("postgres");
-    db.setUserName("postgres");
-    db.setPassword("postgres");
-    bool ok = db.open();
+    QSqlDatabase db=connect_to_DB();
+   bool ok=db.open();
 
     QString returnMsg="";
 
@@ -85,6 +92,14 @@ QString MainWindow::login(QString name,QString pass)
                     if(result == 1){
                         returnMsg="Logged in...";
                         qDebug()<<"Successfully logged in";
+
+                        this->close();
+                        Subject sub;
+                        sub.setFixedHeight(1500);
+                        sub.setFixedWidth(1500);
+                        sub.setModal(true);
+                        sub.exec();
+
                     }else{
                         returnMsg="UserName or password doesn't match.";
                         qDebug()<<"UserName or password doesn't match.";
@@ -106,5 +121,13 @@ return returnMsg;
 
 }
 
+QSqlDatabase Dialog::connect_to_DB()
+{
+    QSqlDatabase db = QSqlDatabase::addDatabase("QPSQL");
+    db.setHostName("localhost");
+    db.setDatabaseName("postgres");
+    db.setUserName("postgres");
+    db.setPassword("postgres");
 
-
+    return db;
+}

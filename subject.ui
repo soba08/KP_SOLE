@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Subject</class>
+ <widget class="QDialog" name="Subject">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1319</width>
+    <height>1013</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>251</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Home&gt;Registration&gt;Choose Subject</string>
+   </property>
+  </widget>
+  <widget class="QRadioButton" name="eng">
+   <property name="geometry">
+    <rect>
+     <x>210</x>
+     <y>130</y>
+     <width>112</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>English</string>
+   </property>
+  </widget>
+  <widget class="QRadioButton" name="sci">
+   <property name="geometry">
+    <rect>
+     <x>210</x>
+     <y>170</y>
+     <width>112</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Science</string>
+   </property>
+  </widget>
+  <widget class="QRadioButton" name="mat">
+   <property name="geometry">
+    <rect>
+     <x>210</x>
+     <y>210</y>
+     <width>112</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Maths</string>
+   </property>
+  </widget>
+  <widget class="QRadioButton" name="geo">
+   <property name="geometry">
+    <rect>
+     <x>210</x>
+     <y>250</y>
+     <width>112</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Geography</string>
+   </property>
+  </widget>
+  <widget class="QRadioButton" name="rnd">
+   <property name="geometry">
+    <rect>
+     <x>210</x>
+     <y>290</y>
+     <width>201</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Pick any Random Subject</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>170</x>
+     <y>60</y>
+     <width>261</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>      Choose Your Subject To Learn!</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="submitChoice">
+   <property name="geometry">
+    <rect>
+     <x>220</x>
+     <y>350</y>
+     <width>201</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Yes,I am Ready To Learn</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
